@@ -1,19 +1,20 @@
 import React from 'react';
+import { Container, Row, Col, Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button } from 'reactstrap';
 
 const Movie = (props) => {
    return (
-      <div className="col s12 m6 l3">
-         <div className="card">
-            <div className="card-image waves-effect waves-block waves-light">
+      <Col md="3">
+         <div>
+            <Card>
                {
-                  props.image == null ? <img src="https://via.placeholder.com/300" alt="card image" style={{width:"100%", height:360}} /> : <img src={`https://image.tmdb.org/t/p/w500${props.image}`} alt="card image" style={{width:"100%", height:360}} />
+                  props.image == null ? <CardImg src="https://via.placeholder.com/300" alt="card image" style={{width:"100%", height:360}} /> : <CardImg src={`https://image.tmdb.org/t/p/w500${props.image}`} alt="card image" style={{width:"100%", height:360}} />
                }
-            </div>
-            <div className="card-content">
-               <p><a href="#" onClick={ () => props.viewMovieInfo(props.movieId) }>View Details</a></p>
-            </div>
+               <CardBody>
+                  <Button className="btn" onClick={ () => props.viewMovieInfo(props.movieId) }>View Details</Button>
+               </CardBody>
+            </Card>
          </div>
-      </div>
+      </Col>
    )
 }
 export default Movie;

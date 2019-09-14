@@ -1,9 +1,10 @@
 import React from 'react';
-import Nav from './components/Nav';
+import Navigation from './components/Navigation';
 import SearchArea from './components/SearchArea';
 import MovieList from './components/MovieList';
-import Pagination from './components/Pagination';
+import PaginationNav from './components/PaginationNav';
 import MovieInfo from './components/MovieInfo';
+import Carousel from './components/Carousel';
 
 
 class App extends React.Component {
@@ -66,14 +67,18 @@ class App extends React.Component {
 
    render(){
       const numberPages = Math.floor(this.state.totalResults / 20);
-
+      const poster = "https://image.tmdb.org/t/p/w500/wwemzKWzjKYJFfCeiB57q3r4Bcm.png"
       return(
          <div className="App">
-            <Nav />
+            <Navigation />
+            <Carousel />
             <br />
             { this.state.currentMovie == null ? <div><SearchArea handleSubmit={this.handleSubmit} handleChange={this.handleChange} /><MovieList viewMovieInfo={this.viewMovieInfo} movies={this.state.movies} /></div> : <MovieInfo currentMovie={this.state.currentMovie} closeMovieInfo={this.closeMovieInfo} /> }
 
-            { this.state.totalResults > 20 && this.state.currentMovie == null ? <Pagination pages={numberPages} nextPage ={this.nextPage} currentPage={this.state.currentPage} /> : "" }
+            { this.state.totalResults > 20 && this.state.currentMovie == null ? <PaginationNav pages={numberPages} nextPage ={this.nextPage} currentPage={this.state.currentPage} /> : "" }
+            <br />
+            <br />
+            <br />
          </div>
       )
    }
