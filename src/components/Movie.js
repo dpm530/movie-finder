@@ -5,12 +5,12 @@ const Movie = (props) => {
    return (
       <Col md="3">
          <div>
-            <Card>
+            <Card className="mb-2">
                {
-                  props.image == null ? <CardImg src="https://via.placeholder.com/300" alt="card image" style={{width:"100%", height:360}} /> : <CardImg src={`https://image.tmdb.org/t/p/w500${props.image}`} alt="card image" style={{width:"100%", height:360}} />
+                  props.image == null ? <CardImg src="https://via.placeholder.com/300" alt="card image" style={{width:"100%", height:400}} /> : <CardImg src={`https://image.tmdb.org/t/p/w500${props.image}`} alt="card image" style={{width:"100%", height:400}} />
                }
                <CardBody>
-                  <Button className="btn" onClick={ () => props.viewMovieInfo(props.movieId) }>View Details</Button>
+                  <Button outline color="success" onClick={ () => props.viewMovieInfo(props.movieId) }>View Details</Button>
                </CardBody>
             </Card>
          </div>

@@ -1,16 +1,21 @@
 import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 const SearchArea = (props) => {
    return (
-      <Container className="text-center">
+      <Container>
          <Row>
-            <Col md="12">
-               <form action="" onSubmit={props.handleSubmit}>
-                  <div className="input-field">
-                     <input placeholder="Search movie" type="text" onChange={props.handleChange} />
-                  </div>
-               </form>
+            <Col className="mx-auto" sm="9" md="7" lg="5">
+
+               <Form onSubmit={props.handleSubmit}>
+                  <FormGroup>
+                     <Input placeholder="Search Movie" type="text" onChange={props.handleChange} />
+                  </FormGroup>
+
+                  <Button>Search</Button>
+               </Form>
+
             </Col>
          </Row>
       </Container>

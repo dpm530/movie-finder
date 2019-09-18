@@ -10,20 +10,23 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem } from 'reactstrap';
+import { Link } from "react-router-dom";
+import './Navigation.css';
 const TMDB = '../img/tmdb.svg';
+
 
 const Navigation = () => {
    return(
-      <Navbar className="fixed-top" style={{backgroundColor: "rgba(0, 0, 0, 0.2)"}}  dark expand="md">
-          <NavbarBrand href="/"><img style={{width:"30%"}} src="https://www.themoviedb.org/assets/2/v4/logos/408x161-powered-by-rectangle-green-bb4301c10ddc749b4e79463811a68afebeae66ef43d17bcfd8ff0e60ded7ce99.png" /></NavbarBrand>
+      <Navbar className="fixed-top navigation" dark expand="md">
+          <NavbarBrand href="/"><img src="https://www.themoviedb.org/assets/2/v4/logos/408x161-powered-by-rectangle-green-bb4301c10ddc749b4e79463811a68afebeae66ef43d17bcfd8ff0e60ded7ce99.png" /></NavbarBrand>
           <NavbarToggler  />
           <Collapse  navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="">Home</NavLink>
+                <Link to="/"><NavLink>Home</NavLink></Link>
               </NavItem>
               <NavItem>
-                <NavLink href="">Search</NavLink>
+                <Link to="/search"><NavLink>Search</NavLink></Link>
               </NavItem>
             </Nav>
           </Collapse>
