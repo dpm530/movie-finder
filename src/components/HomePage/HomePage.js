@@ -1,13 +1,18 @@
 import React from "react";
 import Carousel from '../Carousel';
 import Navigation from '../Navigation/Navigation';
-import SmallCarousel from '../SmallCarousel';
+import TopRatedCarousel from '../TopRatedCarousel';
+import PopularCarousel from '../PopularCarousel';
+import MoviePosterList from '../MoviePosterList';
 
 class HomePage extends React.Component {
    constructor() {
       super();
       this.state = {
-         images: []
+         topRated: [],
+         popular: [],
+         upcoming: []
+
       }
       this.apiKey = process.env.REACT_APP_API
    }
@@ -16,35 +21,40 @@ class HomePage extends React.Component {
       fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${this.apiKey}&language=en-US&page=1&region=US`)
       .then(data => data.json())
       .then(data => {
-         console.log(data.results[0].poster_path);
+         console.log(data.results);
          this.setState({
-            images: [...data.results],
+            topRated: [...data.results],
          })
-         console.log("https://image.tmdb.org/t/p/w500" + data.results[0].poster_path)
+      });
 
-      })
+      fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${this.apiKey}&language=en-US&page=1&region=US`)
+      .then(data => data.json())
+      .then(data => {
+         console.log(data.results);
+         this.setState({
+            popular: [...data.results],
+         })
+      });
+
+      fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${this.apiKey}&language=en-US&page=1&region=US`)
+      .then(data => data.json())
+      .then(data => {
+         console.log(data.results);
+         this.setState({
+            upcoming: [...data.results],
+         })
+      });
    }
 
    render() {
-
 
       return (
          <div>
             <Navigation />
             <Carousel />
-            <br />
-            <SmallCarousel images={this.state.images} />
-            <br />
-            <div>
-               {
-                  this.state.images.map((movie) => {
-
-                     return (
-                        <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
-                     )
-                  })
-               }
-            </div>
+            <h1>Top Rated Movies:</h1>
+            <TopRatedCarousel topRated={this.state.topRated} />
+            <PopularCarousel popular={this.state.popular} />
          </div>
       )
    }

@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import ItemsCarousel from 'react-items-carousel';
+import PosterImage from './PosterImage';
 import { Container, Row, Col, Card, CardTitle, CardText, CardImg, CardImgOverlay, Button } from 'reactstrap';
 
-const SmallCarousel = (props) => {
+const TopRatedCarousel = (props) => {
   const [activeItemIndex, setActiveItemIndex] = useState(0);
   const chevronWidth = 40;
   return (
-    <div style={{ padding: `0 ${chevronWidth}px` }}>
+    <div className="py-4" style={{ padding: `0 ${chevronWidth}px` }}>
       <div style={{ padding: `0 ${chevronWidth}px` }}>
          <ItemsCarousel
            requestToChangeActive={setActiveItemIndex}
@@ -18,11 +19,13 @@ const SmallCarousel = (props) => {
            outsideChevron
            chevronWidth={chevronWidth}
          >
-            <div>
-               <Card inverse>
-                  <CardImg width="100%" src="https://images-na.ssl-images-amazon.com/images/I/A1t8xCe9jwL._SL1500_.jpg" alt="Card image cap" />
-               </Card>
-            </div>
+         {
+            props.topRated.map((movie,i) => {
+               return (
+                  <PosterImage key={i} movieId={movie.id} image={movie.poster_path} />
+               )
+            })
+         }
 
          </ItemsCarousel>
       </div>
@@ -30,4 +33,4 @@ const SmallCarousel = (props) => {
   );
 };
 
-export default SmallCarousel;
+export default TopRatedCarousel;
