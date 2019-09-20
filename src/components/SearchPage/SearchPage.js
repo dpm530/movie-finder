@@ -4,6 +4,7 @@ import SearchArea from '../SearchArea';
 import PaginationNav from '../PaginationNav';
 import MovieInfo from '../MovieInfo';
 import MovieList from '../MovieList';
+import { Jumbotron, Button } from 'reactstrap';
 
 class SearchPage extends React.Component {
    constructor() {
@@ -13,7 +14,8 @@ class SearchPage extends React.Component {
          searchTerm: '',
          totalResults: 0,
          currentPage: 1,
-         currentMovie: null
+         currentMovie: null,
+         page: "not home"
       }
       this.apiKey = process.env.REACT_APP_API
    }
@@ -74,8 +76,16 @@ class SearchPage extends React.Component {
 
       return (
          <div>
-
-         
+            <Navigation page={this.state.page}  />
+               <Jumbotron>
+           <h1 className="display-3">Hello, world!</h1>
+           <p className="lead">This is a simple hero unit, a simple Jumbotron-style component for calling extra attention to featured content or information.</p>
+           <hr className="my-2" />
+           <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+           <p className="lead">
+             <Button color="primary">Learn More</Button>
+           </p>
+         </Jumbotron>
             { this.state.currentMovie == null ? <div><SearchArea handleSubmit={this.handleSubmit} handleChange={this.handleChange} /><MovieList viewMovieInfo={this.viewMovieInfo} movies={this.state.movies} /></div> : <MovieInfo currentMovie={this.state.currentMovie} closeMovieInfo={this.closeMovieInfo} /> }
             { this.state.totalResults > 20 && this.state.currentMovie == null ? <PaginationNav pages={numberPages} nextPage ={this.nextPage} currentPage={this.state.currentPage} /> : "" }
             <br />

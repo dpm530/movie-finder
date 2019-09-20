@@ -12,7 +12,9 @@ class HomePage extends React.Component {
       this.state = {
          topRated: [],
          popular: [],
-         upcoming: []
+         upcoming: [],
+         classStyle: "fixed-top",
+         page: "home"
 
       }
       this.apiKey = process.env.REACT_APP_API
@@ -51,7 +53,7 @@ class HomePage extends React.Component {
 
       return (
          <div>
-            <Navigation />
+            <Navigation page={this.state.page} classStyle={this.state.classStyle} />
             <Carousel />
             <UpcomingCarousel upcoming={this.state.upcoming} />
             <PopularCarousel popular={this.state.popular} />

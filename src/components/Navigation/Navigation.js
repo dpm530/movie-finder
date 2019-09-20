@@ -12,6 +12,8 @@ import {
   DropdownItem } from 'reactstrap';
 import { Link } from "react-router-dom";
 import './Navigation.css';
+import '../HomePage/HomePage';
+import '../SearchPage/SearchPage';
 const TMDB = '../img/tmdb.svg';
 
 
@@ -21,16 +23,21 @@ class Navigation extends React.Component {
 
       this.state = {
          navStyle: "navigation",
+         onScrollNav: "onScrollNav"
       }
 
    }
 
    componentDidMount() {
-      window.addEventListener("scroll", this.handleScroll);
+      if (this.props.page == 'home') {
+         window.addEventListener("scroll", this.handleScroll);
+      }
    }
 
    componentWillUnmount() {
-      window.removeEventListener("scroll", this.handleScroll);
+      if (this.props.page == 'home') {
+         window.removeEventListener("scroll", this.handleScroll);
+      }
    }
 
    handleScroll = () => {
@@ -49,7 +56,7 @@ class Navigation extends React.Component {
 
    render() {
       return(
-         <Navbar id={this.state.navStyle} className="fixed-top" dark expand="md">
+         <Navbar id={ this.props.page == "home" ? this.state.navStyle : this.state.onScrollNav} className="fixed-top" dark expand="md">
             <NavbarBrand href="/"><img style={{width: "30%"}} src="https://www.themoviedb.org/assets/2/v4/logos/408x161-powered-by-rectangle-green-bb4301c10ddc749b4e79463811a68afebeae66ef43d17bcfd8ff0e60ded7ce99.png" /></NavbarBrand>
             <NavbarToggler  />
             <Collapse  navbar>
