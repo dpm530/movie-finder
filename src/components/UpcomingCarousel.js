@@ -3,12 +3,12 @@ import ItemsCarousel from 'react-items-carousel';
 import PosterImage from './PosterImage';
 import { Container, Row, Col, Card, CardTitle, CardText, CardImg, CardImgOverlay, Button } from 'reactstrap';
 
-const TopRatedCarousel = (props) => {
+const UpcomingCarousel = (props) => {
   const [activeItemIndex, setActiveItemIndex] = useState(0);
   const chevronWidth = 40;
   return (
     <div className="py-4" style={{ padding: `0 ${chevronWidth}px` }}>
-      <h1 style={{paddingLeft:40}} >Top Rated Movies:</h1>
+      <h1 style={{paddingLeft:40}} >Upcoming Movies:</h1>
       <div style={{ padding: `0 ${chevronWidth}px` }}>
          <ItemsCarousel
            requestToChangeActive={setActiveItemIndex}
@@ -21,7 +21,7 @@ const TopRatedCarousel = (props) => {
            chevronWidth={chevronWidth}
          >
          {
-            props.topRated.map((movie,i) => {
+            props.upcoming.map((movie,i) => {
                return (
                   <PosterImage key={i} movieId={movie.id} image={movie.poster_path} />
                )
@@ -34,4 +34,4 @@ const TopRatedCarousel = (props) => {
   );
 };
 
-export default TopRatedCarousel;
+export default UpcomingCarousel;

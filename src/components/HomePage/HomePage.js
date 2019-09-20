@@ -3,6 +3,7 @@ import Carousel from '../Carousel';
 import Navigation from '../Navigation/Navigation';
 import TopRatedCarousel from '../TopRatedCarousel';
 import PopularCarousel from '../PopularCarousel';
+import UpcomingCarousel from '../UpcomingCarousel';
 import MoviePosterList from '../MoviePosterList';
 
 class HomePage extends React.Component {
@@ -52,9 +53,9 @@ class HomePage extends React.Component {
          <div>
             <Navigation />
             <Carousel />
-            <h1>Top Rated Movies:</h1>
-            <TopRatedCarousel topRated={this.state.topRated} />
+            <UpcomingCarousel upcoming={this.state.upcoming} />
             <PopularCarousel popular={this.state.popular} />
+            <TopRatedCarousel topRated={this.state.topRated} />
          </div>
       )
    }

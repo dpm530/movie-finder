@@ -9,7 +9,7 @@ const PopularCarousel = (props) => {
   return (
 
       <div className="py-4" style={{ padding: `0 ${chevronWidth}px` }}>
-        <h1 style={{paddingLeft:40}} >Latest Movies:</h1>
+        <h1 style={{paddingLeft:40}} >Popular Movies:</h1>
         <div style={{ padding: `0 ${chevronWidth}px` }}>
            <ItemsCarousel
              requestToChangeActive={setActiveItemIndex}

@@ -18,6 +18,12 @@ class SearchPage extends React.Component {
       this.apiKey = process.env.REACT_APP_API
    }
 
+   componentDidMount() {
+
+   }
+
+
+
    handleSubmit = (e) => {
       e.preventDefault();
 
@@ -68,11 +74,8 @@ class SearchPage extends React.Component {
 
       return (
          <div>
-            <Navigation />
-            <br />
-            <br />
-            <br />
-            <br />
+
+         
             { this.state.currentMovie == null ? <div><SearchArea handleSubmit={this.handleSubmit} handleChange={this.handleChange} /><MovieList viewMovieInfo={this.viewMovieInfo} movies={this.state.movies} /></div> : <MovieInfo currentMovie={this.state.currentMovie} closeMovieInfo={this.closeMovieInfo} /> }
             { this.state.totalResults > 20 && this.state.currentMovie == null ? <PaginationNav pages={numberPages} nextPage ={this.nextPage} currentPage={this.state.currentPage} /> : "" }
             <br />

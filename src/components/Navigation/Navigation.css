@@ -1,6 +1,13 @@
-.navigation{
+#navigation{
    background-color: rgba(0, 0, 0, 0.2);
+   padding-top: .5rem;
+   padding-bottom: .5rem;
+   transition:padding-bottom 0.4s, padding-top 0.4s, background-color 0.4s;
+
 }
-img{
-   width: 30%;
+#onScrollNav{
+   transition:padding-bottom 0.4s, padding-top 0.4s, background-color 0.4s;
+   background-color: black;
+   padding-top: 0.1rem;
+   padding-bottom: 0.1rem;
 }
