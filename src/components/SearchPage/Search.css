@@ -1,0 +1,4 @@
+.jumbotron{
+   background: radial-gradient(at 50% top, rgb(57, 212, 117) 20%, rgba(7, 64, 51, 1) 80%);
+   margin-top: 3rem;
+}

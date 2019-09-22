@@ -7,7 +7,7 @@
 }
 #onScrollNav{
    transition:padding-bottom 0.4s, padding-top 0.4s, background-color 0.4s;
-   background-color: black;
+   background-color: #081c24;
    padding-top: 0.1rem;
    padding-bottom: 0.1rem;
 }

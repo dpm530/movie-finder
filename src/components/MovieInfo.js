@@ -3,9 +3,9 @@ import { Container, Row, Col, Button, CardImg } from 'reactstrap';
 
 const MovieInfo = (props) => {
    return (
-      <Container>
+      <Container style={{marginTop: "3rem"}}>
          <Row>
-            <Col md="12">
+            <Col md="12" className="mt-3">
                <Button outline color="success" onClick={props.closeMovieInfo}><i className="fas fa-arrow-left"></i> Go Back</Button>
             </Col>
          </Row>
